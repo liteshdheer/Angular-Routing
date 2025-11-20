@@ -11,6 +11,11 @@ import { Auth } from '../../services/auth';
 })
 export class Login {
   constructor(private auth:Auth, private router:Router){}
+  ngOnInit(){
+    if(this.auth.isLoggedIn()){
+      this.router.navigate(['admin'])
+    }
+  }
 
   loginForm = new FormGroup({
     email:new FormControl(''),
